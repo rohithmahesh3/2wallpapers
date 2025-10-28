@@ -6,6 +6,9 @@
 
 ## Description
 
+Just a proof of concept.. i like the look of blurry and transparent windows.. but i dont like how much gpu they use. so i had i ideia of blurring the wallpaper instead.. almost zero gpu use.. just update the wallpaper on the fly, i have almost zero js skills, just was made for me, and maybe can be useful for you, feel free to use the ideia in your own extension!
+
+
 GNOME Shell extension Concept that switches wallpapers based on desktop visibility:
 - No visible windows (all minimized/none open): Wallpaper 1 (clean mode).
 - One or more visible windows: Wallpaper 2 (busy mode).
