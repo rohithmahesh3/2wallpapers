@@ -58,6 +58,12 @@ In "Extensions" app > Settings:
 
 *Wallpaper 2.*
 
+
+Video Preview
+https://github.com/user-attachments/assets/86f70883-1977-46bc-be3f-a366503521b2
+
+
+
 ## Development
 
 - Issues: I really dont know what i'm doing, but seens to be working as intended.. clone and mod at will
