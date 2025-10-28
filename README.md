@@ -28,7 +28,8 @@ Ignores minimized windows for intuitive transitions (e.g., Super+D).
 
 ### Via extensions.gnome.org (Recommended)
 
-Todo
+https://extensions.gnome.org/extension/8748/2-wallpapers/ 
+
 ### Manual
 
 1. Clone repo: `git clone https://github.com/dudumaroja/2wallpapers.git`
