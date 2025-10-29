@@ -7,7 +7,6 @@ export default class TwoWallpapersExtension extends Extension {
     constructor(metadata) {
         super(metadata);
         this._settings = null;
-        this._backgroundSettings = new Gio.Settings({ schema_id: 'org.gnome.desktop.background' });
         this._wm = global.workspace_manager;
         this._currentWs = null;
         this._connIds = new Map();
@@ -66,6 +65,7 @@ export default class TwoWallpapersExtension extends Extension {
     }
 
     enable() {
+        this._backgroundSettings = new Gio.Settings({ schema_id: 'org.gnome.desktop.background' });
         this._settings = this.getSettings();
         this._currentWs = this._wm.get_active_workspace();
         this._connectSignals();
@@ -91,5 +91,6 @@ export default class TwoWallpapersExtension extends Extension {
         this._connIds = null;
         this._currentWs = null;
         this._settings = null;
+        this._backgroundSettings = null;
     }
 }
