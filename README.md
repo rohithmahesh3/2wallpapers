@@ -2,7 +2,7 @@
 
 [![GNOME Version](https://img.shields.io/badge/GNOME-45%2B-blue.svg)](https://gnome.org/)
 [![License](https://img.shields.io/badge/License-GPL%20v2%2B-orange.svg)](https://www.gnu.org/licenses/gpl-2.0.html)
-
+[![GNOME-Extensions](https://img.shields.io/badge/GNOME-Extensions-red.svg)](https://extensions.gnome.org/extension/8748/2-wallpapers/)
 
 ## Description
 
@@ -31,7 +31,7 @@ Ignores minimized windows for intuitive transitions (e.g., Super+D).
 
 ### Via extensions.gnome.org (Recommended)
 
-waiting aprooval
+https://extensions.gnome.org/extension/8748/2-wallpapers/
 
 ### Manual
 
