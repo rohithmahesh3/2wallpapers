@@ -31,7 +31,7 @@ Ignores minimized windows for intuitive transitions (e.g., Super+D).
 
 ### Via extensions.gnome.org (Recommended)
 
-https://extensions.gnome.org/extension/8748/2-wallpapers/ 
+waiting aprooval
 
 ### Manual
 
