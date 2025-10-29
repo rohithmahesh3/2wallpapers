@@ -4,5 +4,6 @@
   "uuid": "2wallpapers@dudumaroja",
   "shell-version": ["45", "46", "47", "48", "49"],
   "settings-schema": "org.gnome.shell.extensions.2wallpapers",
-  "version": 2
+  "version": 1,
+  "url":"https://github.com/dudumaroja/2wallpapers/"
 }
