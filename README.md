@@ -60,6 +60,10 @@ In "Extensions" app > Settings:
 
 
 Video Preview
+
+[![Watch the video](https://img.youtube.com/vi/d4QEhnDG3oQ/maxresdefault.jpg)](https://youtu.be/d4QEhnDG3oQ)
+
+Another video
 https://github.com/user-attachments/assets/86f70883-1977-46bc-be3f-a366503521b2
 
 
