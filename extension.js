@@ -91,7 +91,7 @@ export default class TwoWallpapersExtension extends Extension {
         this._connIds.clear();
         this._currentWs.clear();
         this._settings.clear();
-        this._backgroundSettings.clear() = null;
+        this._backgroundSettings.clear();
         this._connIds = null;
         this._currentWs = null;
         this._settings = null;
