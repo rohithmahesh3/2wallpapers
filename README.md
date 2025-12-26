@@ -1,77 +1,98 @@
-# 2 Wallpapers GNOME Shell Extension
+# Workspace Wallpaper GNOME Shell Extension
 
 [![GNOME Version](https://img.shields.io/badge/GNOME-45%2B-blue.svg)](https://gnome.org/)
 [![License](https://img.shields.io/badge/License-GPL%20v2%2B-orange.svg)](https://www.gnu.org/licenses/gpl-2.0.html)
-[![GNOME-Extensions](https://img.shields.io/badge/GNOME-Extensions-red.svg)](https://extensions.gnome.org/extension/8748/2-wallpapers/)
-[![Kofi](https://img.shields.io/badge/Kofi-tips-green.svg)](https://ko-fi.com/dudumaroja)
+
 ## Description
 
-Just a proof of concept.. i like the look of blurry and transparent windows.. but i dont like how much gpu they use. so i had i ideia of blurring the wallpaper instead.. almost zero gpu use.. just update the wallpaper on the fly, i have almost zero js skills, just was made for me, and maybe can be useful for you, feel free to use the ideia in your own extension!
-
-
-GNOME Shell extension Concept that switches wallpapers based on desktop visibility:
-- No visible windows (all minimized/none open): Wallpaper 1 (clean mode).
-- One or more visible windows: Wallpaper 2 (busy mode).
-
-Ignores minimized windows for intuitive transitions (e.g., Super+D).
+A GNOME Shell extension that sets different wallpapers for different workspaces. Perfect for visually distinguishing between your workspaces on GNOME Shell (works on Wayland).
 
 ## Features
 
-- Supports GNOME 45-49.
-- Settings dialog for wallpaper selection.
-- Real-time updates on window changes or workspace switches.
-- Image filter (JPEG, PNG, etc.).
+- **Per-workspace wallpapers**: Configure up to 4 unique wallpapers
+- **Smart fallback**: Workspaces beyond the 4th automatically use the first workspace's wallpaper
+- **Instant switching**: Wallpaper changes only when you switch workspaces (not based on window visibility)
+- **Clean UI**: Simple settings dialog with image preview
+- **Supports GNOME 45-49**
+
+## How It Works
+
+- **Workspace 1**: Uses `workspace-1-wallpaper`
+- **Workspace 2**: Uses `workspace-2-wallpaper`
+- **Workspace 3**: Uses `workspace-3-wallpaper`
+- **Workspace 4**: Uses `workspace-4-wallpaper`
+- **Workspaces 5+**: Uses `workspace-1-wallpaper` (first workspace wallpaper as fallback)
+
+The wallpaper changes only when you switch between workspaces, providing a consistent visual experience.
 
 ## Requirements
 
-- GNOME Shell 45+.
-- Standard GNOME libs (Gio, Gtk, Adw, Meta).
+- GNOME Shell 45+
+- Fedora 43 Wayland GNOME (tested)
+- Standard GNOME libs (Gio, Gtk, Adw, Meta)
 
 ## Installation
 
-### Via extensions.gnome.org (Recommended)
+### Manual Installation
 
-https://extensions.gnome.org/extension/8748/2-wallpapers/
+1. **Create the extensions directory:**
+   ```bash
+   mkdir -p ~/.local/share/gnome-shell/extensions/workspace-wallpaper@rohithmahesh3
+   ```
 
-### Manual
+2. **Copy all files to the extension directory:**
+   ```bash
+   cp -r /home/rohithmahesh/Dev/2wallpapers/* ~/.local/share/gnome-shell/extensions/workspace-wallpaper@rohithmahesh3/
+   ```
 
-1. Clone repo: `git clone https://github.com/dudumaroja/2wallpapers.git`
-2. Copy to extensions: `cp -r 2wallpapers@dudumaroja ~/.local/share/gnome-shell/extensions/`
-3. Compile schemas: `glib-compile-schemas ~/.local/share/gnome-shell/extensions/2wallpapers@dudumaroja/schemas/`
-4. Restart Shell: Alt+F2, `r` (X11) or logout/login (Wayland).
-5. Enable: `gnome-extensions enable 2wallpapers@dudumaroja`
+3. **Compile schemas:**
+   ```bash
+   glib-compile-schemas ~/.local/share/gnome-shell/extensions/workspace-wallpaper@rohithmahesh3/schemas/
+   ```
+
+4. **Restart GNOME Shell:**
+   - On Wayland: Log out and log back in
+   - On X11: Press `Alt+F2`, type `r`, and press Enter
+
+5. **Enable the extension:**
+   ```bash
+   gnome-extensions enable workspace-wallpaper@rohithmahesh3
+   ```
+   Or use the GNOME Extensions app to enable it.
 
 ## Configuration
 
-In "Extensions" app > Settings:
-- Click buttons to select wallpapers.
-- Changes apply instantly.
+1. Open the **Extensions** app
+2. Find **Workspace Wallpaper** extension
+3. Click the **Settings** (gear) icon
+4. Select a wallpaper for each of the 4 workspaces
+5. Switch between workspaces to see the wallpaper change
 
-## Screenshots
+## Troubleshooting
 
-<!-- Add images -->
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/aeda1e4c-3b17-4b2e-888c-a9f881e8dcf6" />
+### Extension not showing in Extensions app
 
-*Wallpaper 1.*
+Make sure the extension is in the correct directory:
+```bash
+ls ~/.local/share/gnome-shell/extensions/workspace-wallpaper@rohithmahesh3/
+```
 
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/1664e98d-719c-47ba-a8f3-847286caeeb3" />
+You should see: `extension.js`, `metadata.json`, `prefs.js`, `schemas/`, etc.
 
-*Wallpaper 2.*
+### Reload extensions
 
+If the extension doesn't appear after installation:
+```bash
+dbus-send --session --dest=org.gnome.Shell --type=method_call /org/gnome/Shell org.gnome.Shell.Extensions.ReloadExtensions
+```
 
-Video Preview
-
-[![Watch the video](https://img.youtube.com/vi/d4QEhnDG3oQ/maxresdefault.jpg)](https://youtu.be/d4QEhnDG3oQ)
-
-Another video
-https://github.com/user-attachments/assets/86f70883-1977-46bc-be3f-a366503521b2
-
-
+Then restart GNOME Shell.
 
 ## Development
 
-- Issues: I really dont know what i'm doing, but seens to be working as intended.. clone and mod at will
-- GPL-2.0-or-later.
+Forked from [2wallpapers](https://github.com/dudumaroja/2wallpapers) by [@dudumaroja](https://github.com/dudumaroja).
+
+Modified to support per-workspace wallpapers instead of window-based wallpaper switching.
 
 ## License
 
@@ -79,4 +100,5 @@ https://github.com/user-attachments/assets/86f70883-1977-46bc-be3f-a366503521b2
 
 ## Credits
 
-Developed by [@dudumaroja](https://github.com/dudumaroja).
+- Original extension: [@dudumaroja](https://github.com/dudumaroja)
+- Modified by: [@rohithmahesh3](https://github.com/rohithmahesh3)

@@ -9,16 +9,19 @@ export default class TwoWallpapersPreferences extends ExtensionPreferences {
         const settings = this.getSettings();
 
         const page = new Adw.PreferencesPage();
-        const group = new Adw.PreferencesGroup({ title: '2Wallpapers Settings' });
+        const group = new Adw.PreferencesGroup({ title: 'Workspace Wallpaper Settings' });
         page.add(group);
 
-        // Filtro para imagens
+        // Filter for images
         const imageFilter = new Gtk.FileFilter();
         imageFilter.add_pixbuf_formats();
 
-        // Função auxiliar para criar botão de seleção
-        const createChooserButton = (key, title) => {
-            const row = new Adw.ActionRow({ title });
+        // Helper function to create wallpaper chooser button
+        const createChooserButton = (key, title, subtitle = '') => {
+            const row = new Adw.ActionRow({
+                title,
+                subtitle,
+            });
 
             const button = new Gtk.Button({
                 label: 'Select image',
@@ -26,27 +29,28 @@ export default class TwoWallpapersPreferences extends ExtensionPreferences {
                 halign: Gtk.Align.END,
             });
 
-            // Define largura fixa
+            // Set fixed width
             button.set_size_request(200, -1);
 
-            // Aplica truncamento ao label interno do botão
+            // Apply truncation to the button's internal label
             const label = button.get_child();
             if (label && label instanceof Gtk.Label) {
                 label.set_ellipsize(Pango.EllipsizeMode.END);
-                label.set_max_width_chars(20); // limita caracteres visíveis
+                label.set_max_width_chars(20);
             }
 
+            // Load current wallpaper if set
             const currentUri = settings.get_string(key);
             if (currentUri) {
                 const file = Gio.File.new_for_uri(currentUri);
                 const basename = file.get_basename() || 'Select image';
                 button.set_label(basename);
-                button.set_tooltip_text(basename); // tooltip com nome completo
+                button.set_tooltip_text(basename);
             }
 
             button.connect('clicked', () => {
                 const dialog = new Gtk.FileChooserNative({
-                    title: 'Select an image',
+                    title: `Select wallpaper for ${title}`,
                     action: Gtk.FileChooserAction.OPEN,
                     transient_for: window,
                     modal: true,
@@ -59,7 +63,7 @@ export default class TwoWallpapersPreferences extends ExtensionPreferences {
                         settings.set_string(key, uri || '');
                         const basename = dlg.get_file().get_basename() || 'Select image';
                         button.set_label(basename);
-                        button.set_tooltip_text(basename); // tooltip atualizado
+                        button.set_tooltip_text(basename);
                     }
                     dlg.destroy();
                 });
@@ -71,11 +75,17 @@ export default class TwoWallpapersPreferences extends ExtensionPreferences {
             group.add(row);
         };
 
-        // Wallpaper sem janelas
-        createChooserButton('wallpaper-no-windows', 'Clear Desktop Wallpaper');
+        // Workspace 1 wallpaper
+        createChooserButton('workspace-1-wallpaper', 'Workspace 1', 'Wallpaper for the first workspace (also used for workspaces 5+)');
 
-        // Wallpaper com janelas
-        createChooserButton('wallpaper-with-windows', 'With Windows Wallpaper');
+        // Workspace 2 wallpaper
+        createChooserButton('workspace-2-wallpaper', 'Workspace 2', 'Wallpaper for the second workspace');
+
+        // Workspace 3 wallpaper
+        createChooserButton('workspace-3-wallpaper', 'Workspace 3', 'Wallpaper for the third workspace');
+
+        // Workspace 4 wallpaper
+        createChooserButton('workspace-4-wallpaper', 'Workspace 4', 'Wallpaper for the fourth workspace');
 
         window.add(page);
     }

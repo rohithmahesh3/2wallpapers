@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="gnome-shell-extensions">
+  <schema id="org.gnome.shell.extensions.workspace-wallpaper" path="/org/gnome/shell/extensions/workspace-wallpaper/">
+    <key name="workspace-1-wallpaper" type="s">
+      <default>''</default>
+      <summary>Wallpaper URI for workspace 1</summary>
+      <description>The file URI for the wallpaper to use on workspace 1.</description>
+    </key>
+    <key name="workspace-2-wallpaper" type="s">
+      <default>''</default>
+      <summary>Wallpaper URI for workspace 2</summary>
+      <description>The file URI for the wallpaper to use on workspace 2.</description>
+    </key>
+    <key name="workspace-3-wallpaper" type="s">
+      <default>''</default>
+      <summary>Wallpaper URI for workspace 3</summary>
+      <description>The file URI for the wallpaper to use on workspace 3.</description>
+    </key>
+    <key name="workspace-4-wallpaper" type="s">
+      <default>''</default>
+      <summary>Wallpaper URI for workspace 4</summary>
+      <description>The file URI for the wallpaper to use on workspace 4. For workspaces beyond 4, this wallpaper will also be used.</description>
+    </key>
+  </schema>
+</schemalist>
